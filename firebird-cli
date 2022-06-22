@@ -1,0 +1,32 @@
+######## gbak
+
+gbak -B -user SYSDBA -pas masterkey /data/Base/WMS_KZ.FDB /backup/db/WMS_KZ_1.FBK -v
+
+gbak -R -user SYSDBA -pas masterkey /backup/test/WMS_KZ_1.FBK /backup/db/WMS_KZ-RESTORE.FDB -V
+
+
+/opt/firebird/bin/gbak -V -user SYSDBA -pas masterkey /home/myhomefolder/base/MYBASE.FDB /home/myhomefolder/backup/MYBASE.FBK
+
+
+/opt/firebird/bin/gbak -C -V -user SYSDBA -pas masterkey /home/myhomefolder/backup/MYBASE.FBK /home/myhomefolder/backup/MYBASE.FDB
+
+
+sudo /opt/firebird/bin/gbak -C -V -user SYSDBA -pas masterkey /backup/wms_tur.fbk /backup/WMS_TUR-RESTORE.FDB
+
+
+sudo gfix -user SYSDBA -pas masterkey -shut 0 wms_tur.fdb
+
+
+========================================================
+
+#!/bin/sh
+DATE='date+%d.%m.%Y..%H:%M'
+/opt/firebird/bin/gbak -b -g -v -user *USER* -pas *PAS* /database/namebase.gdb /database/backup/$DATE.bak
+
+
+tar -czvf /database/backup/$DATE.tar.gz /database/backup/$DATE.bak
+sleep 500
+rm /database/backup/$DATE.bak
+exit 0
+
+========================================================
