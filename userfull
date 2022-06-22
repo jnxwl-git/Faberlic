@@ -1,0 +1,41 @@
+// iPerf
+
+iperf3 -s -f M (SS)
+
+iperf3 -c itg-wbt-pp-1-p -p 5201 -t 86400 --logfile C:\AZ-IPERF-LOG-24H.log (PS)
+
+
+// Chrome reinstall tab
+
+
+--simulate-outdated-no-au="01 Jan 2032"
+
+
+// FQDN - PowerShell
+
+[System.Net.Dns]::GetHostByName($env:computerName)
+
+[System.Net.Dns]::GetHostByName($env:computerName).HostName
+
+$myFQDN=(Get-WmiObject win32_computersystem).DNSHostName+"."+(Get-WmiObject win32_computersystem).Domain ; Write-Host $myFQDN
+
+
+//Hyper-V Copy
+
+Copy-VMFile -Name KG-PRINT-1-P -SourcePath C:\1.zip -DestinationPath C:\  -CreateFullPath -FileSource Host
+
+
+//SCP
+
+sudo scp e.kandaurov@10.250.16.17:/data/Base/uus.zip ~/Documents
+
+
+//Fix crontab time execute
+
+hwclock --systohc
+
+
+//Add or remove to sudoers
+sudo usermod -a -G sudo <username>
+
+sudo gpasswd -d <username> <group>
