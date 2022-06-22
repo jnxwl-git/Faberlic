@@ -1,0 +1,9 @@
+[Unit]
+Description=WMS_Backup
+
+[Service]
+Type=simple
+ExecStart=/data/backup/run.sh
+
+[Install]
+WantedBy=multi-user.target
